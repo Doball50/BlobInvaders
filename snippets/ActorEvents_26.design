@@ -1,2 +1,54 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<groups/>
+<groups>
+    <group eventID="1" id="0">
+        <event-mouse-enter-exit-actor comment="false" x="15" y="15">
+            <group eventID="1" id="-1">
+                <set-val-23-2 comment="false" x="26" y="42">
+                    <int id="0" val="Animation 1"/>
+                </set-val-23-2>
+                <set-val-23-3 comment="false" x="26" y="62">
+                    <int id="0" val="Animation 0"/>
+                </set-val-23-3>
+                <set-val-23-1 comment="false" x="26" y="82">
+                    <not comment="false" id="0" x="0" y="0">
+                        <get-val-23-1 comment="false" id="0" x="0" y="0"/>
+                    </not>
+                </set-val-23-1>
+                <if comment="false" x="26" y="112">
+                    <group eventID="1" id="-1">
+                        <set-volume comment="false" x="37" y="142">
+                            <int id="0" val="0"/>
+                        </set-volume>
+                        <setanim comment="false" x="37" y="162">
+                            <ACTOR eid="this" id="0"/>
+                            <get-val-23-2 comment="false" id="1" x="0" y="0"/>
+                        </setanim>
+                    </group>
+                    <eq comment="false" id="0" x="0" y="0">
+                        <get-val-23-1 comment="false" id="0" x="0" y="0"/>
+                        <true comment="false" id="1" x="0" y="0"/>
+                    </eq>
+                </if>
+                <else comment="false" x="26" y="206">
+                    <group eventID="1" id="-1">
+                        <set-volume comment="false" x="37" y="226">
+                            <int id="0" val="100"/>
+                        </set-volume>
+                        <setanim comment="false" x="37" y="246">
+                            <ACTOR eid="this" id="0"/>
+                            <get-val-23-3 comment="false" id="1" x="0" y="0"/>
+                        </setanim>
+                    </group>
+                </else>
+            </group>
+            <ACTOR eid="this" id="0"/>
+            <int id="1" val="2"/>
+        </event-mouse-enter-exit-actor>
+    </group>
+    <group eventID="1" id="12">
+        <set-val-23-3 comment="false" x="379" y="318">
+            <int id="0" val=""/>
+        </set-val-23-3>
+    </group>
+    <group eventID="1" id="-1"/>
+</groups>
