@@ -43,6 +43,12 @@
                             <int id="2" val="topSpeed"/>
                             <int id="3" val="0"/>
                         </set-attribute>
+                        <set-attribute comment="false" x="37" y="296">
+                            <ACTOR eid="this" id="0"/>
+                            <int id="1" val="Fire Bullet One At a Time"/>
+                            <int id="2" val="_CanFire"/>
+                            <false comment="false" id="3" x="0" y="0"/>
+                        </set-attribute>
                     </group>
                 </else>
             </group>

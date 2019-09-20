@@ -43,6 +43,7 @@ import box2D.common.math.B2Vec2;
 import box2D.dynamics.B2Body;
 import box2D.dynamics.B2Fixture;
 import box2D.dynamics.joints.B2Joint;
+import box2D.collision.shapes.B2Shape;
 
 import com.stencyl.graphics.shaders.BasicShader;
 import com.stencyl.graphics.shaders.GrayscaleShader;
@@ -61,30 +62,21 @@ import com.stencyl.graphics.shaders.BloomShader;
 
 
 
-class Design_1_1_DieWhenHit extends ActorScript
+class SceneEvents_2 extends SceneScript
 {
 	
 	
-	public function new(dummy:Int, actor:Actor, dummy2:Engine)
+	public function new(dummy:Int, dummy2:Engine)
 	{
-		super(actor);
-		nameMap.set("Actor", "actor");
+		super();
 		
 	}
 	
 	override public function init()
 	{
 		
-		/* ======================== Actor of Type ========================= */
-		addCollisionListener(actor, function(event:Collision, list:Array<Dynamic>):Void
-		{
-			if(wrapper.enabled && sameAsAny(getActorType(9), event.otherActor.getType(),event.otherActor.getGroup()))
-			{
-				recycleActor(actor);
-				recycleActor(actor.getLastCollidedActor());
-				actor.shout("_customEvent_" + "HandleDeath");
-			}
-		});
+		/* ======================== When Creating ========================= */
+		playSoundOnChannel(getSound(29), 0);
 		
 	}
 	

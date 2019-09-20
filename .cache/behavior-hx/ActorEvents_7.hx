@@ -61,30 +61,34 @@ import com.stencyl.graphics.shaders.BloomShader;
 
 
 
-class Design_1_1_DieWhenHit extends ActorScript
+class ActorEvents_7 extends ActorScript
 {
+	public var _Bullet:Actor;
+	public var _Bullet1:ActorType;
 	
 	
 	public function new(dummy:Int, actor:Actor, dummy2:Engine)
 	{
 		super(actor);
-		nameMap.set("Actor", "actor");
+		nameMap.set("Bullet", "_Bullet");
+		nameMap.set("Bullet 1", "_Bullet1");
 		
 	}
 	
 	override public function init()
 	{
 		
-		/* ======================== Actor of Type ========================= */
-		addCollisionListener(actor, function(event:Collision, list:Array<Dynamic>):Void
+		/* ======================= Every N seconds ======================== */
+		runPeriodically(1000 * randomFloatBetween(1, 5), function(timeTask:TimedTask):Void
 		{
-			if(wrapper.enabled && sameAsAny(getActorType(9), event.otherActor.getType(),event.otherActor.getGroup()))
+			if(wrapper.enabled)
 			{
-				recycleActor(actor);
-				recycleActor(actor.getLastCollidedActor());
-				actor.shout("_customEvent_" + "HandleDeath");
+				createRecycledActor(getActorType(30), actor.getX(), actor.getY(), Script.FRONT);
+				_Bullet = getLastCreatedActor();
+				_Bullet.setVelocity(90, 10);
+				_Bullet.growTo(25/100, 25/100, 0, Easing.linear);
 			}
-		});
+		}, actor);
 		
 	}
 	

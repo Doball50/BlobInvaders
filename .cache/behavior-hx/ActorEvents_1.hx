@@ -61,28 +61,45 @@ import com.stencyl.graphics.shaders.BloomShader;
 
 
 
-class Design_1_1_DieWhenHit extends ActorScript
+class ActorEvents_1 extends ActorScript
 {
+	public var _Health:Float;
 	
 	
 	public function new(dummy:Int, actor:Actor, dummy2:Engine)
 	{
 		super(actor);
-		nameMap.set("Actor", "actor");
+		nameMap.set("Health", "_Health");
+		_Health = 0.0;
 		
 	}
 	
 	override public function init()
 	{
 		
+		/* ======================== When Creating ========================= */
+		_Health = 3;
+		
 		/* ======================== Actor of Type ========================= */
 		addCollisionListener(actor, function(event:Collision, list:Array<Dynamic>):Void
 		{
-			if(wrapper.enabled && sameAsAny(getActorType(9), event.otherActor.getType(),event.otherActor.getGroup()))
+			if(wrapper.enabled && sameAsAny(getActorType(30), event.otherActor.getType(),event.otherActor.getGroup()))
 			{
-				recycleActor(actor);
-				recycleActor(actor.getLastCollidedActor());
-				actor.shout("_customEvent_" + "HandleDeath");
+				recycleActor(event.otherActor);
+				if(!(_Health == 0))
+				{
+					_Health = (_Health - 1);
+				}
+				else
+				{
+					runLater(1000 * 5, function(timeTask:TimedTask):Void
+					{
+						switchScene(GameModel.get().scenes.get(2).getID(), null, createCrossfadeTransition(1));
+					}, actor);
+					actor.setFilter([createGrayscaleFilter()]);
+					actor.setValue("2 Way Control", "topSpeed", 0);
+					actor.setValue("Fire Bullet One At a Time", "_CanFire", false);
+				}
 			}
 		});
 		
