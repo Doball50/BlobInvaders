@@ -24,7 +24,7 @@
         <number default="5" defaultValue="5" desc="" dropdown="" fullname="Number of Second Actors to Create" hidden="false" id="5" name="_NumberofSecondActorstoCreate" order="4"/>
         <actortype default="13" defaultValue="13" desc="" dropdown="" fullname="Second Actor to Create" hidden="false" id="6" name="_SecondActortoCreate" order="5"/>
         <number default="0.7" defaultValue="0.7" desc="" dropdown="" fullname="Explosion Force of Second Actors" hidden="false" id="7" name="_ExplosionForceofSecondActors" order="6"/>
-        <sound default="15" defaultValue="15" desc="" dropdown="" fullname="Sound to Play" hidden="false" id="8" name="_SoundtoPlay" order="7"/>
+        <sound default="" defaultValue="" desc="" dropdown="" fullname="Sound to Play" hidden="false" id="8" name="_SoundtoPlay" order="7"/>
         <blocks/>
         <events>
             <event displayName="HandleDeath" enabled="true" id="1" name="event-custom" order="1" repeats="true"/>

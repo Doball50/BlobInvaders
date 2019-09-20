@@ -72,7 +72,7 @@ class Design_2_2_ExplodeonDeath extends ActorScript
 	public var _SoundtoPlay:Sound;
 	public function _customEvent_HandleDeath():Void
 	{
-		playSound(_SoundtoPlay);
+		playSound(getSound(32));
 		for(index0 in 0...Std.int(_NumberofActorstoCreate))
 		{
 			createRecycledActor(getActorType(11), (actor.getX() + (actor.getWidth()/2)), (actor.getY() + (actor.getHeight()/2)), Script.FRONT);
@@ -103,7 +103,6 @@ class Design_2_2_ExplodeonDeath extends ActorScript
 		nameMap.set("Explosion Force of Second Actors", "_ExplosionForceofSecondActors");
 		_ExplosionForceofSecondActors = 0.7;
 		nameMap.set("Sound to Play", "_SoundtoPlay");
-		_SoundtoPlay = getSound(15);
 		
 	}
 	

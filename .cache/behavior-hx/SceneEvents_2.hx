@@ -76,6 +76,7 @@ class SceneEvents_2 extends SceneScript
 	{
 		
 		/* ======================== When Creating ========================= */
+		stopSoundOnChannel(1);
 		playSoundOnChannel(getSound(29), 0);
 		
 	}

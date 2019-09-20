@@ -102,7 +102,7 @@ class Design_7_7_FireBullet extends ActorScript
 			getLastCreatedActor().setY((getLastCreatedActor().getY() - ((getLastCreatedActor().getHeight()) / 2)));
 			getLastCreatedActor().setAngle(Utils.RAD * ((((Utils.DEG * actor.getAngle()) + shooterangle) - bulletangle)));
 			getLastCreatedActor().setVelocity((((Utils.DEG * actor.getAngle()) + shooterangle) - 180), speed);
-			playSound(sound);
+			playSound(getSound(28));
 		}
 	}
 	
